@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ribbitron Inventory</title>
+    <style>
+        body {
+            background-color: #1a1a1a;
+            color: #00ff00;
+            font-family: 'Courier New', Courier, monospace;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
+        .inventory-container {
+            position: relative;
+            display: inline-block;
+            margin-top: 20px;
+        }
+        .inventory-image {
+            width: 600px; /* Adjust based on your image size */
+            height: auto;
+        }
+        .item {
+            position: absolute;
+            cursor: pointer;
+            z-index: 1;
+        }
+        .tooltip {
+            position: absolute;
+            background-color: #333;
+            color: #00ff00;
+            padding: 5px;
+            border: 1px solid #00ff00;
+            font-size: 12px;
+            z-index: 10;
+            pointer-events: none;
+            display: none;
+        }
+        .buttons {
+            margin-top: 10px;
+        }
+        .button {
+            background-color: #444;
+            border: 2px solid #00ff00;
+            color: #00ff00;
+            padding: 5px 10px;
+            margin: 0 5px;
+            cursor: pointer;
+            display: inline-block;
+            width: 60px; /* Fixed width for consistency */
+            text-align: center;
+            z-index: 100 !important;
+            position: relative;
+        }
+        .button:hover {
+            background-color: #00ff00;
+            color: #000;
+        }
+        .message {
+            margin-top: 10px;
+            font-size: 16px;
+            color: #ff00ff;
+        }
+        .eye-cursor {
+            cursor: zoom-in;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ribbitron Inventory</h1>
+    <div class="inventory-container">
+        <img src="/Users/fredweidemann/Documents/GitHub/Ribbitron_image_cache" alt="Ribbitron Inventory" class="inventory-image">
+        <!-- Item positions (adjusted slightly for alignment) -->
+        <div class="item" style="top: 5px; left: 15px; width: 135px; height: 135px;" data-desc="Glowing Lilypads: Bioluminescent pads to light the way."></div>
+        <div class="item" style="top: 5px; left: 155px; width: 135px; height: 135px;" data-desc="Swampwood Logs: Sturdy wood, perfect for building shelters or spears, sap repels bugs."></div>
+        <div class="item" style="top: 5px; left: 305px; width: 135px; height: 135px;" data-desc="Cosmic-Charged Vines: Electrified vines can be used to weave nets."></div>
+        <div class="item" style="top: 5px; left: 455px; width: 135px; height: 135px;" data-desc="Meteor Scraps: Jagged chunks for blades and a fantastic heat source."></div>
+        <div class="item" style="top: 150px; left: 15px; width: 135px; height: 125px;" data-desc="Slime-Schloop Puddles: Sticky goo: Lather yourself for camouflage."></div>
+        <div class="item" style="top: 150px; left: 155px; width: 135px; height: 125px;" data-desc="Snap-Trap Ferns: Carnivorous plants to catch Voidkin scouts."></div>
+        <div class="item" style="top: 150px; left: 305px; width: 135px; height: 125px;" data-desc="Violet Pond Water: Heals wounds, weakens Voidkins."></div>
+        <div class="item" style="top: 150px; left: 455px; width: 135px; height: 125px;" data-desc="Frog-Fire Flies: Glowing bugs for light."></div>
+        <div class="item" style="top: 280px; left: 15px; width: 135px; height: 110px;" data-desc="Spiky Cosmic Fruit: Edible for toads, to keep energy up."></div>
+        <div class="item" style="top: 280px; left: 155px; width: 135px; height: 110px;" data-desc="Crystal Frogshells: Tough shells, is an excellent armor."></div>
+        <div class="item" style="top: 280px; left: 305px; width: 135px; height: 110px;" data-desc="Moss-Medic Paste: Heals wounds and bug bites."></div>
+        <div class="item" style="top: 280px; left: 455px; width: 135px; height: 110px;" data-desc="Ribbitron Resonators: Stones that amplify croaks into sonic blasts."></div>
+        <div class="item" style="top: 385px; left: 15px; width: 135px; height: 125px;" data-desc="Glowcap Mushrooms: Nutritious, and delicious."></div>
+        <div class="item" style="top: 385px; left: 155px; width: 135px; height: 125px;" data-desc="Vine-Woven Nets: For snaring Voidkins or catching food."></div>
+        <div class="item" style="top: 385px; left: 305px; width: 135px; height: 125px;" data-desc="Echoing Lily Horns: Lilies that amplify signals."></div>
+        <div class="item" style="top: 385px; left: 455px; width: 135px; height: 125px;" data-desc="Twin-Moon Crystals: Lunar crystals to burn Voidkins with light beams."></div>
+        <div class="tooltip" id="tooltip"></div>
+    </div>
+    <div class="buttons">
+        <div class="button" id="eye">👁</div> <!-- Eye emoji -->
+        <div class="button" id="hand">✋</div>   <!-- Hand emoji -->
+        <div class="button" id="arrow">➡</div> <!-- Arrow emoji -->
+        <div class="button" id="question">❓</div> <!-- Question mark emoji -->
+        <div class="button" id="ok">OK</div>
+    </div>
+    <div class="message" id="message"></div>
+
+    <script src="/Users/fredweidemann/Documents/GitHub/Ribbitron_image_cache"></script>
+</body>
+</html>
